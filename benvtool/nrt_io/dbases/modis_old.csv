@@ -1,0 +1,168 @@
+Short_Name,Collection,Keyword,Spatial_Resolution (m),Temporal_Resolution,Path,Time_lag[d]
+MCD12C1.006,Combined MODIS,Land Cover,5600,Yearly,MOTA,180
+MCD12Q1.006,Combined MODIS,Land Cover,500,Yearly,MOTA,240
+MCD12Q2.006,Combined MODIS,Land Cover,500,Yearly,MOTA,580
+MCD15A2H.006,Combined MODIS,"Fraction of Photosynthetically Active Radiation (FPAR), Leaf Area Index (LAI)",500,Multi-Day,MOTA,10
+MCD15A3H.006,Combined MODIS,"Fraction of Photosynthetically Active Radiation (FPAR), Leaf Area Index (LAI)",500,Multi-Day,MOTA,5
+MCD18A1.006,Combined MODIS,Surface Radiance,5600,Daily,MOTA,19
+MCD18A2.006,Combined MODIS,Surface Radiance,5600,Daily,MOTA,19
+MCD19A1.006,Combined MODIS,Surface Reflectance,"500, 1000",Daily,MOTA,2
+MCD19A2.006,Combined MODIS,Aerosol Optical Depth,1000,Daily,MOTA,2
+MCD19A3.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Multi-Day,MOTA,10
+MCD43A1.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF)",500,Daily,MOTA,9
+MCD43A2.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF)",500,Daily,MOTA,9
+MCD43A3.006,Combined MODIS,Albedo,500,Daily,MOTA,9
+MCD43A4.006,Combined MODIS,"Bidirectional Reflectance Distribution Function (BRDF), Surface Reflectance",500,Daily,MOTA,9999
+MCD43C1.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF)",5600,Daily,MOTA,9999
+MCD43C2.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),5600,Daily,MOTA,9999
+MCD43C3.006,Combined MODIS,Albedo,5600,Daily,MOTA,9999
+MCD43C4.006,Combined MODIS,"Bidirectional Reflectance Distribution Function (BRDF), Surface Reflectance",5600,Daily,MOTA,9999
+MCD43D01.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D02.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D03.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D04.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D05.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D06.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D07.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D08.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D09.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D10.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D11.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D12.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D13.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D14.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D15.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D16.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D17.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D18.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D19.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D20.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D21.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D22.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D23.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D24.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D25.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D26.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D27.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D28.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D29.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D30.006,Combined MODIS,Bidirectional Reflectance Distribution Function (BRDF),1000,Daily,MOTA,9999
+MCD43D31.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF), Elevation, Quality",1000,Daily,MOTA,9999
+MCD43D32.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF), Quality",1000,Daily,MOTA,9999
+MCD43D33.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF), Quality",1000,Daily,MOTA,9999
+MCD43D34.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF), Quality",1000,Daily,MOTA,9999
+MCD43D35.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF), Quality",1000,Daily,MOTA,9999
+MCD43D36.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF), Quality",1000,Daily,MOTA,9999
+MCD43D37.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF), Quality",1000,Daily,MOTA,9999
+MCD43D38.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF), Quality",1000,Daily,MOTA,9999
+MCD43D39.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF), Quality",1000,Daily,MOTA,9999
+MCD43D40.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF), Quality",1000,Daily,MOTA,9999
+MCD43D41.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF)",1000,Daily,MOTA,9999
+MCD43D42.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D43.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D44.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D45.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D46.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D47.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D48.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D49.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D50.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D51.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D52.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D53.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D54.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D55.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D56.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D57.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D58.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D59.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D60.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D61.006,Combined MODIS,Albedo,1000,Daily,MOTA,9999
+MCD43D62.006,Combined MODIS,"Bidirectional Reflectance Distribution Function (BRDF), Surface Reflectance",1000,Daily,MOTA,9999
+MCD43D63.006,Combined MODIS,"Bidirectional Reflectance Distribution Function (BRDF), Surface Reflectance",1000,Daily,MOTA,9999
+MCD43D64.006,Combined MODIS,"Bidirectional Reflectance Distribution Function (BRDF), Surface Reflectance",1000,Daily,MOTA,9999
+MCD43D65.006,Combined MODIS,"Bidirectional Reflectance Distribution Function (BRDF), Surface Reflectance",1000,Daily,MOTA,9999
+MCD43D66.006,Combined MODIS,"Bidirectional Reflectance Distribution Function (BRDF), Surface Reflectance",1000,Daily,MOTA,9999
+MCD43D67.006,Combined MODIS,"Bidirectional Reflectance Distribution Function (BRDF), Surface Reflectance",1000,Daily,MOTA,9999
+MCD43D68.006,Combined MODIS,"Bidirectional Reflectance Distribution Function (BRDF), Surface Reflectance",1000,Daily,MOTA,9999
+MCD43GF.006,Combined MODIS,"Albedo, Bidirectional Reflectance Distribution Function (BRDF)",1000,Daily,MOTA,9999
+MCD64A1.006,Combined MODIS,"Burned Area, Thermal Anomalies and Fire",500,Monthly,MOTA,9999
+MOD09A1.006,Terra MODIS,Surface Reflectance,500,Multi-Day,MOLT,9999
+MOD09CMG.006,Terra MODIS,Surface Reflectance,5600,Daily,MOLT,9999
+MOD09GA.006,Terra MODIS,Surface Reflectance,"500, 1000",Daily,MOLT,9999
+MOD09GQ.006,Terra MODIS,Surface Reflectance,250,Daily,MOLT,9999
+MOD09Q1.006,Terra MODIS,Surface Reflectance,250,Multi-Day,MOLT,9999
+MOD11A1.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",1000,Daily,MOLT,9999
+MOD11A2.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",1000,Multi-Day,MOLT,9999
+MOD11B1.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Daily,MOLT,9999
+MOD11B2.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Multi-Day,MOLT,9999
+MOD11B3.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Monthly,MOLT,9999
+MOD11C1.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Daily,MOLT,9999
+MOD11C2.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Multi-Day,MOLT,9999
+MOD11C3.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Monthly,MOLT,9999
+MOD11_L2.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",1000,< Daily,MOLT,9999
+MOD13A1.006,Terra MODIS,Vegetation Indices (VI),500,Multi-Day,MOLT,9999
+MOD13A2.006,Terra MODIS,Vegetation Indices (VI),1000,Multi-Day,MOLT,9999
+MOD13A3.006,Terra MODIS,Vegetation Indices (VI),1000,Monthly,MOLT,9999
+MOD13C1.006,Terra MODIS,Vegetation Indices (VI),5600,Multi-Day,MOLT,9999
+MOD13C2.006,Terra MODIS,Vegetation Indices (VI),5600,Monthly,MOLT,9999
+MOD13Q1.006,Terra MODIS,Vegetation Indices (VI),250,Multi-Day,MOLT,9999
+MOD14.006,Terra MODIS,Thermal Anomalies and Fire,1000,< Daily,MOLT,9999
+MOD14A1.006,Terra MODIS,Thermal Anomalies and Fire,1000,Daily,MOLT,9999
+MOD14A2.006,Terra MODIS,Thermal Anomalies and Fire,1000,Multi-Day,MOLT,9999
+MOD15A2H.006,Terra MODIS,"Fraction of Photosynthetically Active Radiation (FPAR), Leaf Area Index (LAI)",500,Multi-Day,MOLT,9999
+MOD16A2.006,Terra MODIS,Evapotranspiration (ET),500,Multi-Day,MOLT,9999
+MOD16A2GF.006,Terra MODIS,Evapotranspiration (ET),500,Multi-Day,MOLT,9999
+MOD16A3.006,Terra MODIS,Evapotranspiration (ET),500,Yearly,MOLT,9999
+MOD16A3GF.006,Terra MODIS,Evapotranspiration (ET),500,Yearly,MOLT,9999
+MOD17A2H.006,Terra MODIS,Gross Primary Productivity (GPP),500,Multi-Day,MOLT,9999
+MOD17A2HGF.006,Terra MODIS,Gross Primary Productivity (GPP),500,Multi-Day,MOLT,9999
+MOD17A3.055,Terra MODIS,Net Primary Productivity (NPP),1000,Yearly,MOLT,9999
+MOD17A3H.006,Terra MODIS,Net Primary Productivity (NPP),500,Yearly,MOLT,9999
+MOD17A3HGF.006,Terra MODIS,Net Primary Productivity (NPP),500,Yearly,MOLT,9999
+MOD21.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",1000,< Daily,MOLT,9999
+MOD21A1D.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",1000,Daily,MOLT,9999
+MOD21A1N.006,Terra MODIS,"Emissivity, Land Surface Temperature (LST)",1000,Daily,MOLT,9999
+MOD21A2.006,Terra MODIS,Land Surface Temperature (LST),1000,Multi-Day,MOLT,9999
+MOD44B.006,Terra MODIS,Vegetation Continuous Fields (VCF),250,Yearly,MOLT,9999
+MOD44W.006,Terra MODIS,Land Cover,250,Yearly,MOLT,9999
+MODOCGA.006,Terra MODIS,Surface Reflectance,1000,Daily,MOLT,9999
+MODTBGA.006,Terra MODIS,"Albedo, Land Surface Temperature (LST), Surface Reflectance",1000,Daily,MOLT,9999
+MYD09A1.006,Aqua MODIS,Surface Reflectance,500,Multi-Day,MOLA,9999
+MYD09CMG.006,Aqua MODIS,Surface Reflectance,5600,Daily,MOLA,9999
+MYD09GA.006,Aqua MODIS,Surface Reflectance,"500, 1000",Daily,MOLA,9999
+MYD09GQ.006,Aqua MODIS,Surface Reflectance,250,Daily,MOLA,9999
+MYD09Q1.006,Aqua MODIS,Surface Reflectance,250,Multi-Day,MOLA,9999
+MYD11A1.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",1000,Daily,MOLA,9999
+MYD11A2.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",1000,Multi-Day,MOLA,9999
+MYD11B1.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Daily,MOLA,9999
+MYD11B2.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Multi-Day,MOLA,9999
+MYD11B3.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Monthly,MOLA,9999
+MYD11C1.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Daily,MOLA,9999
+MYD11C2.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Multi-Day,MOLA,9999
+MYD11C3.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",5600,Monthly,MOLA,9999
+MYD11_L2.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",1000,< Daily,MOLA,9999
+MYD13A1.006,Aqua MODIS,Vegetation Indices (VI),500,Multi-Day,MOLA,9999
+MYD13A2.006,Aqua MODIS,Vegetation Indices (VI),1000,Multi-Day,MOLA,9999
+MYD13A3.006,Aqua MODIS,Vegetation Indices (VI),1000,Monthly,MOLA,9999
+MYD13C1.006,Aqua MODIS,Vegetation Indices (VI),5600,Multi-Day,MOLA,9999
+MYD13C2.006,Aqua MODIS,Vegetation Indices (VI),5600,Monthly,MOLA,9999
+MYD13Q1.006,Aqua MODIS,Vegetation Indices (VI),250,Multi-Day,MOLA,9999
+MYD14.006,Aqua MODIS,Thermal Anomalies and Fire,1000,< Daily,MOLA,9999
+MYD14A1.006,Aqua MODIS,Thermal Anomalies and Fire,1000,Daily,MOLA,9999
+MYD14A2.006,Aqua MODIS,Thermal Anomalies and Fire,1000,Multi-Day,MOLA,9999
+MYD15A2H.006,Aqua MODIS,"Fraction of Photosynthetically Active Radiation (FPAR), Leaf Area Index (LAI)",500,Multi-Day,MOLA,9999
+MYD16A2.006,Aqua MODIS,Evapotranspiration (ET),500,Multi-Day,MOLA,9999
+MYD16A2GF.006,Aqua MODIS,Evapotranspiration (ET),500,Multi-Day,MOLA,9999
+MYD16A3.006,Aqua MODIS,Evapotranspiration (ET),500,Yearly,MOLA,9999
+MYD16A3GF.006,Aqua MODIS,Evapotranspiration (ET),500,Yearly,MOLA,9999
+MYD17A2H.006,Aqua MODIS,Gross Primary Productivity (GPP),500,Multi-Day,MOLA,9999
+MYD17A2HGF.006,Aqua MODIS,Gross Primary Productivity (GPP),500,Multi-Day,MOLA,9999
+MYD17A3H.006,Aqua MODIS,Net Primary Productivity (NPP),500,Yearly,MOLA,9999
+MYD17A3HGF.006,Aqua MODIS,Net Primary Productivity (NPP),500,Yearly,MOLA,9999
+MYD21.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",1000,Daily,MOLA,9999
+MYD21A1D.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",1000,Daily,MOLA,9999
+MYD21A1N.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",1000,Daily,MOLA,9999
+MYD21A2.006,Aqua MODIS,"Emissivity, Land Surface Temperature (LST)",1000,Multi-Day,MOLA,9999
+MYDOCGA.006,Aqua MODIS,Surface Reflectance,1000,Daily,MOLA,9999
+MYDTBGA.006,Aqua MODIS,"Albedo, Land Surface Temperature (LST), Surface Reflectance",1000,Daily,MOLA,9999

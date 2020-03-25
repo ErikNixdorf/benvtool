@@ -1,0 +1,263 @@
+<root>
+  <basics type="dict">
+    <grid_location type="str">\Input\Mueglitz_basin_grid.shp</grid_location>
+    <grid_crs type="str">epsg:4326</grid_crs>
+    <output_location type="str">\Output\Mueglitz_data</output_location>
+    <output_name type="str">Mueglitz</output_name>
+    <start_time type="str">2012-01-01-12</start_time>
+    <end_time type="str">2014-01-01-12</end_time>
+    <temporal_resolution type="str">daily</temporal_resolution>
+    <spatial_resolution type="int">1000</spatial_resolution>
+    <output_crs type="str">epsg:25833</output_crs>
+    <attributesfile_location type="str">\Input\Netcdf_attributes.csv</attributesfile_location>
+    <dbase_location type="str">\dbases</dbase_location>
+  </basics>
+  <topography type="dict">
+    <elevation type="dict">
+      <file_location type="str">\dbases\topography\EUD_DEM_100_WGS84.tif</file_location>
+      <no_data type="int">-9999</no_data>
+      <raster_dtype type="str">int</raster_dtype>
+      <stats_type type="str">point_query</stats_type>
+      <metrics type="list">
+        <item type="str">mean</item>
+      </metrics>
+      <interpolate type="str">nearest</interpolate>
+    </elevation>
+    <slope type="dict">
+      <file_location type="str">\dbases\topography\EUD_SLOPE_100_WGS84.tif</file_location>
+      <no_data type="int">-9999</no_data>
+      <raster_dtype type="str">int</raster_dtype>
+      <stats_type type="str">point_query</stats_type>
+      <metrics type="list">
+        <item type="str">mean</item>
+      </metrics>
+      <interpolate type="str">nearest</interpolate>
+    </slope>
+    <landuse type="dict">
+      <file_location type="str">\dbases\corine\corine_2018.tif</file_location>
+      <no_data type="int">-32768</no_data>
+      <raster_dtype type="str">int</raster_dtype>
+      <stats_type type="str">point_query</stats_type>
+      <metrics type="list">
+        <item type="str">mean</item>
+      </metrics>
+      <interpolate type="str">nearest</interpolate>
+    </landuse>
+    <waterbodies type="dict">
+      <file_location type="str">\dbases\hydrology\waterbodies_germany.tif</file_location>
+      <no_data type="int">0</no_data>
+      <raster_dtype type="str">int</raster_dtype>
+      <stats_type type="str">zonal_stats</stats_type>
+      <metrics type="list">
+        <item type="str">max</item>
+      </metrics>
+      <interpolate type="str">nearest</interpolate>
+    </waterbodies>
+    <waterways type="dict">
+      <file_location type="str">\dbases\hydrology\waterways_germany.tif</file_location>
+      <no_data type="int">-2147483648</no_data>
+      <raster_dtype type="str">int</raster_dtype>
+      <stats_type type="str">zonal_stats</stats_type>
+      <metrics type="list">
+        <item type="str">max</item>
+      </metrics>
+      <interpolate type="str">nearest</interpolate>
+    </waterways>
+  </topography>
+  <soilgrid type="dict">
+    <wcs_layers type="dict">
+      <key name="sg250m:ORCDRC_M_sl1_250m" type="str">ORCDRC_sl1</key>
+      <key name="sg250m:BLDFIE_M_sl1_250m" type="str">BLDFIE_sl1</key>
+      <key name="sg250m:PHIHOX_M_sl1_250m" type="str">PHIHOX_sl1</key>
+      <key name="sg250m:SNDPPT_M_sl1_250m" type="str">SNDPPT_sl1</key>
+      <key name="sg250m:SLTPPT_M_sl1_250m" type="str">SLTPPT_sl1</key>
+      <key name="sg250m:CLYPPT_M_sl1_250m" type="str">CLYPPT_sl1</key>
+      <key name="sg250m:CRFVOL_M_sl1_250m" type="str">CRFVOL_sl1</key>
+      <key name="sg250m:CECSOL_M_sl1_250m" type="str">CECSOL_sl1</key>
+      <key name="sg250m:ORCDRC_M_sl2_250m" type="str">ORCDRC_sl2</key>
+      <key name="sg250m:BLDFIE_M_sl2_250m" type="str">BLDFIE_sl2</key>
+      <key name="sg250m:PHIHOX_M_sl2_250m" type="str">PHIHOX_sl2</key>
+      <key name="sg250m:SNDPPT_M_sl2_250m" type="str">SNDPPT_sl2</key>
+      <key name="sg250m:SLTPPT_M_sl2_250m" type="str">SLTPPT_sl2</key>
+      <key name="sg250m:CLYPPT_M_sl2_250m" type="str">CLYPPT_sl2</key>
+      <key name="sg250m:CRFVOL_M_sl2_250m" type="str">CRFVOL_sl2</key>
+      <key name="sg250m:CECSOL_M_sl2_250m" type="str">CECSOL_sl2</key>
+      <key name="sg250m:ORCDRC_M_sl3_250m" type="str">ORCDRC_sl3</key>
+      <key name="sg250m:BLDFIE_M_sl3_250m" type="str">BLDFIE_sl3</key>
+      <key name="sg250m:PHIHOX_M_sl3_250m" type="str">PHIHOX_sl3</key>
+      <key name="sg250m:SNDPPT_M_sl3_250m" type="str">SNDPPT_sl3</key>
+      <key name="sg250m:SLTPPT_M_sl3_250m" type="str">SLTPPT_sl3</key>
+      <key name="sg250m:CLYPPT_M_sl3_250m" type="str">CLYPPT_sl3</key>
+      <key name="sg250m:CRFVOL_M_sl3_250m" type="str">CRFVOL_sl3</key>
+      <key name="sg250m:CECSOL_M_sl3_250m" type="str">CECSOL_sl3</key>
+    </wcs_layers>
+    <restapi_layers type="list">
+      <item type="str">ORCDRC</item>
+      <item type="str">BLDFIE</item>
+      <item type="str">PHIHOX</item>
+      <item type="str">SNDPPT</item>
+      <item type="str">SLTPPT</item>
+      <item type="str">CLYPPT</item>
+      <item type="str">CRFVOL</item>
+      <item type="str">CECSOL</item>
+    </restapi_layers>
+  </soilgrid>
+  <hydrogeology type="dict">
+    <Hydrologische_Uebersichtskarte_250 type="dict">
+      <data_url type="str">https://download.bgr.de/bgr/Grundwasser/huek250/shp/huek250.zip</data_url>
+      <crs type="str">epsg:25832</crs>
+      <dataset_path type="str">//huek250_v103/shp/huek250__25832_v103_poly.shp</dataset_path>
+      <layers type="dict">
+        <kf type="str">hydraulic_conducitivity</kf>
+        <HA_bez type="str">aquifer_type</HA_bez>
+      </layers>
+    </Hydrologische_Uebersichtskarte_250>
+    <BodenUebersichtskarte_1000 type="dict">
+      <data_url type="str">https://download.bgr.de/bgr/Boden/BUEK1000DE/shp/buek1000de_v21.zip</data_url>
+      <crs type="str">epsg:3034</crs>
+      <dataset_path type="str">//buek1000de_v21.shp</dataset_path>
+      <layers type="dict">
+        <LBA type="str">Soil_Layer_ID</LBA>
+      </layers>
+    </BodenUebersichtskarte_1000>
+  </hydrogeology>
+  <openstreetmap type="dict">
+    <landuse type="dict">
+      <queryfeatures type="dict">
+        <way type="list">
+          <item type="str">landuse</item>
+        </way>
+      </queryfeatures>
+      <values_in type="null"/>
+      <values_out type="null"/>
+      <CountValues type="bool">False</CountValues>
+    </landuse>
+    <highway type="dict">
+      <queryfeatures type="dict">
+        <way type="list">
+          <item type="str">highway</item>
+        </way>
+      </queryfeatures>
+      <values_in type="null"/>
+      <values_out type="list">
+        <item type="str">service</item>
+        <item type="str">footway</item>
+      </values_out>
+      <CountValues type="bool">False</CountValues>
+    </highway>
+    <trees type="dict">
+      <queryfeatures type="dict">
+        <node type="list">
+          <item type="str">natural</item>
+        </node>
+      </queryfeatures>
+      <values_in type="list">
+        <item type="str">tree</item>
+      </values_in>
+      <values_out type="null"/>
+      <CountValues type="bool">True</CountValues>
+    </trees>
+  </openstreetmap>
+  <radolan type="dict">
+    <statistic_time_steps type="list">
+      <item type="int">7</item>
+      <item type="int">14</item>
+      <item type="int">21</item>
+    </statistic_time_steps>
+    <to_harddisk type="bool">True</to_harddisk>
+  </radolan>
+  <dwd_weather_stations type="dict">
+    <categories type="dict">
+      <air_temperature type="list">
+        <item type="str">2m_air_temperature</item>
+        <item type="str">2m_relative_humidity</item>
+      </air_temperature>
+      <pressure type="list">
+        <item type="str">air_pressure_nn</item>
+      </pressure>
+    </categories>
+    <no_of_nearest_stations type="int">5</no_of_nearest_stations>
+    <idw_exponent type="int">1</idw_exponent>
+  </dwd_weather_stations>
+  <modis type="dict">
+    <to_harddisk type="bool">True</to_harddisk>
+    <username type="str">Nixdorf88</username>
+    <password type="str">Dummling88</password>
+    <products type="dict">
+      <MOD09GA.006 type="dict">
+        <delta_days_min type="int">20</delta_days_min>
+        <delta_days_max type="int">20</delta_days_max>
+        <interp type="str">nearest</interp>
+        <product_parameters type="list">
+          <item type="str">sur_refl_b01_1</item>
+          <item type="str">sur_refl_b02_1</item>
+          <item type="str">sur_refl_b03_1</item>
+          <item type="str">sur_refl_b04_1</item>
+          <item type="str">sur_refl_b05_1</item>
+          <item type="str">sur_refl_b06_1</item>
+          <item type="str">sur_refl_b07_1</item>
+        </product_parameters>
+        <no_data type="dict">
+          <sur_refl_b01_1 type="int">-28672</sur_refl_b01_1>
+          <sur_refl_b02_1 type="int">-28672</sur_refl_b02_1>
+          <sur_refl_b03_1 type="int">-28672</sur_refl_b03_1>
+          <sur_refl_b04_1 type="int">-28672</sur_refl_b04_1>
+          <sur_refl_b05_1 type="int">-28672</sur_refl_b05_1>
+          <sur_refl_b06_1 type="int">-28672</sur_refl_b06_1>
+          <sur_refl_b07_1 type="int">-28672</sur_refl_b07_1>
+        </no_data>
+      </MOD09GA.006>
+      <MOD11A2.006 type="dict">
+        <delta_days_min type="int">0</delta_days_min>
+        <delta_days_max type="int">40</delta_days_max>
+        <interp type="str">backfill</interp>
+        <product_parameters type="list">
+          <item type="str">LST_Day_1km</item>
+          <item type="str">LST_Night_1km</item>
+          <item type="str">Emis_31</item>
+          <item type="str">Emis_32</item>
+        </product_parameters>
+        <no_data type="dict">
+          <LST_Day_1km type="int">0</LST_Day_1km>
+          <LST_Night_1km type="int">0</LST_Night_1km>
+          <Emis_31 type="int">0</Emis_31>
+          <Emis_32 type="int">0</Emis_32>
+        </no_data>
+      </MOD11A2.006>
+      <MOD13A1.006 type="dict">
+        <delta_days_min type="int">0</delta_days_min>
+        <delta_days_max type="int">40</delta_days_max>
+        <interp type="str">backfill</interp>
+        <product_parameters type="list">
+          <item type="str">500m 16 days NDVI</item>
+          <item type="str">500m 16 days EVI</item>
+          <item type="str">500m 16 days red reflectance</item>
+          <item type="str">500m 16 days NIR reflectance</item>
+          <item type="str">500m 16 days blue reflectance</item>
+          <item type="str">500m 16 days MIR reflectance</item>
+        </product_parameters>
+        <no_data type="dict">
+          <key name="500m 16 days NDVI" type="int">-3000</key>
+          <key name="500m 16 days EVI" type="int">-3000</key>
+          <key name="500m 16 days red reflectance" type="int">-1000</key>
+          <key name="500m 16 days NIR reflectance" type="int">-1000</key>
+          <key name="500m 16 days blue reflectance" type="int">-1000</key>
+          <key name="500m 16 days MIR reflectance" type="int">-1000</key>
+        </no_data>
+      </MOD13A1.006>
+      <MOD15A2H.006 type="dict">
+        <delta_days_min type="int">0</delta_days_min>
+        <delta_days_max type="int">20</delta_days_max>
+        <interp type="str">backfill</interp>
+        <product_parameters type="list">
+          <item type="str">Fpar_500m</item>
+          <item type="str">Lai_500m</item>
+        </product_parameters>
+        <no_data type="dict">
+          <Fpar_500m type="int">-3000</Fpar_500m>
+          <Lai_500m type="int">-3000</Lai_500m>
+        </no_data>
+      </MOD15A2H.006>
+    </products>
+  </modis>
+</root>

@@ -1,0 +1,72 @@
+NAME,EXPLANATION,UNIT,DATASOURCE
+air_pressure_nn,mean sea level pressure,hPA,DWD_station_network
+LST_Day_1km_weekly,Average 8-day Daytime Land Surface Temperature,Kelvin,MODIS_MOD11A2
+precip_7_acc,7-day accumulated daily rainfall,cm per sm,DWD_RADOLAN
+DOY,Day of the Year,None,None
+precip_daily,Daily Precipitation,cm per sm,DWD_RADOLAN
+sur_refl_b04_1,Daily Surface Reflectance for Band 4,none,MODIS_MOD09GA
+precip_7_counts,7-days counts of rainfall days,none,DWD_RADOLAN
+500m 16 days EVI,500m 16 days EVI,none,MODIS_MOD13A1.006
+precip_14_mean,7-days daily mean of rainfall,cm per sm,DWD_RADOLAN
+sur_refl_b06_1,Daily Surface Reflectance for Band 6,none,MODIS_MOD09GA
+precip_14_acc,14-day accumulated daily rainfall,mm,DWD_RADOLAN
+500m 16 days NDVI,16 days NDVI,NDVI,MODIS_MOD13A1.006
+precip_21_std,21-days standard deviation of daily rainfall,cm per sm,DWD_RADOLAN
+LST_Night_1km_weekly,Average 8-day Nighttime Land Surface Temperature,Kelvin,MODIS_MOD11A2
+Emis_32_weekly,Average 8-day Band 32 emissivity,none,MODIS_MOD11A2
+500m 16 days blue reflectance,Surface Reflectance Band 3,none,MODIS_MOD13A1.006
+sur_refl_b03_1,Daily Surface Reflectance for Band 3,none,MODIS_MOD09GA
+sur_refl_b07_1,Daily Surface Reflectance for Band 7,none,MODIS_MOD09GA
+precip_14_std,14-days standard deviation of daily rainfall,cm per sm,DWD_RADOLAN
+500m 16 days red reflectance,Surface Reflectance Band 1,none,MODIS_MOD13A1.006
+500m 16 days MIR reflectance,Surface Reflectance Band 7,none,MODIS_MOD13A1.006
+precip_21_mean,7-days daily mean of rainfall,cm per sm,DWD_RADOLAN
+500m 16 days NIR reflectance,Surface Reflectance Band 2,none,MODIS_MOD13A1.006
+Emis_31_weekly,Average 8-day Band 31 emissivity,none,MODIS_MOD11A2
+sur_refl_b02_1,Surface Reflectance for Band 2,none,MODIS_MOD09GA
+precip_14_counts,14-days counts of rainfall days,none,DWD_RADOLAN
+air_temperature,2m air temperature,degree Celsius,DWD_station_network
+sur_refl_b05_1,Daily Surface Reflectance for Band 5,none,MODIS_MOD09GA
+relative_humidity,2m relative humidity,percentage,DWD_station_network
+precip_7_mean,7-days daily mean of rainfall,cm per sm,DWD_RADOLAN
+sur_refl_b01_1,Daily Surface Reflectance for Band 1,none,MODIS_MOD09GA
+precip_21_acc,21-days accumulated daily rainfall,cm per sm,DWD_RADOLAN
+precip_7_std,7-days standard deviation of daily rainfall,cm per sm,DWD_RADOLAN
+precip_21_counts,21-days counts of rainfall days,none,DWD_RADOLAN
+BLDFIE_sl1,Bulk density (fine earth) ,kg / cubic-meter,SoilGrids250m
+BLDFIE_sl2,Bulk density (fine earth) ,kg / cubic-meter,SoilGrids250m
+BLDFIE_sl3,Bulk density (fine earth) ,kg / cubic-meter,SoilGrids250m
+CECSOL_sl1,Cation exchange capacity of soil,cmolc/kg,SoilGrids250m
+CECSOL_sl2,Cation exchange capacity of soil,cmolc/kg,SoilGrids250m
+CECSOL_sl3,Cation exchange capacity of soil,cmolc/kg,SoilGrids250m
+CLYPPT_sl1,lay content (0-2 micro meter) mass fraction,Percentage,SoilGrids250m
+CLYPPT_sl2,lay content (0-2 micro meter) mass fraction,Percentage,SoilGrids250m
+CLYPPT_sl3,lay content (0-2 micro meter) mass fraction,Percentage,SoilGrids250m
+CRFVOL_sl1,Coarse fragments volumetric ,Percentage,SoilGrids250m
+CRFVOL_sl2,Coarse fragments volumetric ,Percentage,SoilGrids250m
+CRFVOL_sl3,Coarse fragments volumetric ,Percentage,SoilGrids250m
+ORCDRC_sl1,Soil organic carbon content (fine earth fraction),g per kg,SoilGrids250m
+ORCDRC_sl2,Soil organic carbon content (fine earth fraction),g per kg,SoilGrids250m
+ORCDRC_sl3,Soil organic carbon content (fine earth fraction),g per kg,SoilGrids250m
+PHIHOX_sl1,Soil pH x 10 in H2O,none,SoilGrids250m
+PHIHOX_sl2,Soil pH x 10 in H2O,none,SoilGrids250m
+PHIHOX_sl3,Soil pH x 10 in H2O,none,SoilGrids250m
+SLTPPT_sl1,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
+SLTPPT_sl2,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
+SLTPPT_sl3,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
+SNDPPT_sl1,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
+SNDPPT_sl2,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
+SNDPPT_sl3,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
+road_type,dominant road type,none,OpenStreetMap
+osm_landuse,dominant landuse type,none,OpenStreetMap
+waterbody,Information whether a waterbody is located at datapoint,none,OpenStreetMap
+waterway,Information whether a stream is located at datapoint,none,OpenStreetMap
+landuse,Landcover categoryaccording to corine 2018 dataset,none,Corine2018
+slope,topographical slope,Percentage,EU-DEM v1.0
+elevation,Elevation,meter,EU-DEM v1.0
+No_of_tree,Number of counted Trees,none,OpenStreetMap
+hydraulic_conducitivity,hydraulic conductivity of the upper aquifer,m/s,"Hydrogeological Map of Germany 1:250,000 (HÜK250)"
+aquifer_type,"Hohlraumart, Bezeichnung",none,"Hydrogeological Map of Germany 1:250,000 (HÜK250)"
+Soil_Layer_ID,ID of soil category,none,"Bodenübersichtskarte Deutschland 1:1,000,000 (BUEK1000)"
+Fpar_500,Fraction of Photosynthetically Active Radiation,Percent,MODIS_MOD09GA
+Lai_500m,Leaf Area Index,m2/m2,MODIS_MOD09GA
