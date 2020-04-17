@@ -3,7 +3,7 @@ This Module creates a homogenized netcdf file with data from various possible so
 NOTICE: Currently, BGR DATA is only available as WMS only, which is 
 
 """
-import sys
+
 from roverweb import *
 import roverweb as rw
 import geopandas as gpd
@@ -20,7 +20,7 @@ from urllib.request import urlopen
 from rasterstats import point_query,zonal_stats
 from io import BytesIO
 import xml.etree.ElementTree
-dataset_version='0.25'
+dataset_version='0.26'
 
 #%% Some functionality
 def make_dict_from_tree(element_tree):
@@ -206,15 +206,8 @@ for key in config.keys():
 
 d1 = datetime.strptime(config['basics']['start_time'], "%Y-%m-%d-%H")
 d2 = datetime.strptime(config['basics']['end_time'], "%Y-%m-%d-%H")
-#create dates depending on the temporal resolution
-if config['basics']['temporal_resolution']=='daily':
-    days=abs((d2 - d1).days)
-    date_list=[d1 + timedelta(days=x) for x in range(0,days)]
-elif config['basics']['temporal_resolution']=='hourly':
-    dif = int((d2-d1).total_seconds()/3600) ## time difference in hours
-    date_list = [d1 + timedelta(hours=x) for x in range(dif+1)]
-else:
-    sys.exit('Unnkowm temporal resolution, either daily or hourly is supported')
+days=abs((d2 - d1).days)
+date_list=[d1 + timedelta(days=x) for x in range(0,days)]
 #create output directory if not exist
 if not os.path.exists(os.getcwd()+config['basics']['output_location']):
     os.makedirs(os.getcwd()+config['basics']['output_location'])
@@ -413,14 +406,20 @@ for date in date_list:
             except:
                 print('Attributes for parameter',col,' not defined')
                 pass
-        #write to file
+        # add clobal attribites
+                #adds attributes to entire dataset
+        ds_out_stat=ds_out_stat.assign_attrs({'Description': 'Comprehensive dataset of dynamic and stationary datasets for '+config['basics']['output_name']+' Area for '+date.strftime('%m%Y'),
+                                    'Author': 'Erik Nixdorf', 'Version' : dataset_version, 'Version_Date' : datetime.now().date().strftime('%d-%m-%Y'),
+                                    'CRS' : config['basics']['output_crs']})
+        #transpose x and y and write out
+        ds_out_stat=ds_out_stat.transpose('y', 'x')
         ds_out_stat.to_netcdf(os.getcwd()+config['basics']['output_location']+'\\'+config['basics']['output_name']+'_stationary.nc',format='NETCDF4_CLASSIC') 
         
     #if the path exist we just upload the file back to xarray
     else:
         ds_stationary=xr.load_dataset(os.getcwd()+config['basics']['output_location']+'\\'+config['basics']['output_name']+'_stationary.nc')
     
-    
+    haha
     #%% Now we go to the dynamic data
     print('Start retrieving dynamic datasets for timestep',date.date())
     #if initial we need to create a boundary shapefile
@@ -448,33 +447,13 @@ for date in date_list:
     #%%get copy of original dataframe for the desired time step and change geometry to centroid
     gdf_timestep=gdf_in.copy()
     gdf_timestep['time']=date
-    """
-    Some Ideas to merge houly data to entire days which allows faster access to dwd database
-    In config I suggest in [basics] fo add: <daily_data_processing type="bool">True</daily_data_processing>
-           print('append hourly data together to daily datasets')
-        #create a new list for the hour of each date
-        date_list=[repeat(datetime(date.year,date.month,date.day,x,0),len(gdf_timestep)) for x in range(0,24)]
-        #extent the dataframe
-        gdf_timestep=pd.concat([gdf_timestep]*24)
-        #attach to timestep time
-        date_list_extent=list()
-        for date_l in date_list:
-            date_list_extent.extend(date_l)
-        gdf_timestep['time']=date_list_extent
-        gdf_timestep=gdf_timestep.reset_index(drop=True)
-    """
     #add DOY 
     gdf_timestep['DOY'] = date.timetuple().tm_yday
     #%% we start with Precipitation Data from Raster
     if 'radolan' in config:
         print('get radolan precipitation data for campaign') 
-        #create the downloader class with time span depending on statistics
-        if config['basics']['temporal_resolution']=='daily':
-            time_increment=timedelta(days=int(config['radolan']['statistic_time_steps'][-1]))
-        elif config['basics']['temporal_resolution']=='hourly':
-            time_increment=timedelta(hours=int(config['radolan']['statistic_time_steps'][-1]))
-        
-        datemin=(date-time_increment).strftime("%Y-%m-%d:%H%M")
+        #create the downloader class
+        datemin=(date-timedelta(days=int(config['radolan']['statistic_time_steps'][-1]))).strftime("%Y-%m-%d:%H%M")
         datemax=date.strftime("%Y-%m-%d:%H%M")
         #%%create the downloader class
         rado_downloader=nrt_dw.downloader(start_time=datemin, end_time=datemax, roi='roi.shp', roi_buffer=0.02)
@@ -494,38 +473,30 @@ for date in date_list:
             rado_y=ds_rado.coords['y'].values    
             position_indices=np.array(gdf_timestep.apply(get_nearest_indices,axis=1,geometry_column=['geometry_radolan_x','geometry_radolan_y'],coordinate_array=[rado_x,rado_y]).to_list())
         #after we got the indices, we need to apply on array for each time step
-        #the actual rain at the required timestep
-        col_name='precip_'+config['basics']['temporal_resolution']
-        if ds_rado[precip_parameter].time.size>1:
-            rado_step=np.array(ds_rado[precip_parameter].sortby('time').sel(time=date,method='nearest'))
-        else:
-            rado_step=np.array(ds_rado[precip_parameter])
+        #the actual rain at the day of date
+        col_name='precip_daily'
+        rado_step=np.array(ds_rado[precip_parameter].sortby('time').sel(time=date,method='nearest'))
         gdf_timestep[col_name]=[rado_step[pos_index[1],pos_index[0]] for pos_index in position_indices]
-        #the statisics
-        if ds_rado[precip_parameter].time.size>1:
-            if isinstance(config['radolan']['statistic_time_steps'],str):
-                config['radolan']['statistic_time_steps']=[config['radolan']['statistic_time_steps']]
-            for rado_time_step in config['radolan']['statistic_time_steps']:
-                
-                rado_time_step=int(rado_time_step)
-                ds_rado_slice=ds_rado.sortby('time').sel(time=slice(date-timedelta(days=rado_time_step),date+timedelta(days=1)))
-                #first the accumulatio(sum)
-                col_name='precip_' + str(rado_time_step) + '_acc'
-                rado_sum=np.array(ds_rado_slice[precip_parameter].sum(dim='time'))
-                #select from rado_sum using approach from questions/35607818/        
-                gdf_timestep[col_name]=[rado_sum[pos_index[1],pos_index[0]] for pos_index in position_indices]
-                #add mean
-                col_name='precip_' + str(rado_time_step) + '_mean'
-                rado_mean=np.array(ds_rado_slice[precip_parameter].mean(dim='time'))
-                gdf_timestep[col_name]=[rado_mean[pos_index[1],pos_index[0]] for pos_index in position_indices]           
-                #add deviation
-                col_name='precip_' + str(rado_time_step) + '_std'
-                rado_std=np.array(ds_rado_slice[precip_parameter].std(dim='time'))
-                gdf_timestep[col_name]=[rado_std[pos_index[1],pos_index[0]] for pos_index in position_indices]
-                #add the amount of hours with rainfall within the dataset 
-                col_name='precip_'+str(rado_time_step)+'_counts'
-                rado_count=np.count_nonzero(np.array(ds_rado_slice[precip_parameter]),axis=0)
-                gdf_timestep[col_name]=[rado_count[pos_index[1],pos_index[0]] for pos_index in position_indices]
+        for rado_time_step in config['radolan']['statistic_time_steps']:
+            rado_time_step=int(rado_time_step)
+            ds_rado_slice=ds_rado.sortby('time').sel(time=slice(date-timedelta(days=rado_time_step),date+timedelta(days=1)))
+            #first the accumulatio(sum)
+            col_name='precip_' + str(rado_time_step) + '_acc'
+            rado_sum=np.array(ds_rado_slice[precip_parameter].sum(dim='time'))
+            #select from rado_sum using approach from questions/35607818/        
+            gdf_timestep[col_name]=[rado_sum[pos_index[1],pos_index[0]] for pos_index in position_indices]
+            #add mean
+            col_name='precip_' + str(rado_time_step) + '_mean'
+            rado_mean=np.array(ds_rado_slice[precip_parameter].mean(dim='time'))
+            gdf_timestep[col_name]=[rado_mean[pos_index[1],pos_index[0]] for pos_index in position_indices]           
+            #add deviation
+            col_name='precip_' + str(rado_time_step) + '_std'
+            rado_std=np.array(ds_rado_slice[precip_parameter].std(dim='time'))
+            gdf_timestep[col_name]=[rado_std[pos_index[1],pos_index[0]] for pos_index in position_indices]
+            #add the amount of hours with rainfall within the dataset 
+            col_name='precip_'+str(rado_time_step)+'_counts'
+            rado_count=np.count_nonzero(np.array(ds_rado_slice[precip_parameter]),axis=0)
+            gdf_timestep[col_name]=[rado_count[pos_index[1],pos_index[0]] for pos_index in position_indices]
         #delete geometry columns
         gdf_timestep.drop(columns=['geometry_radolan_x','geometry_radolan_y'],inplace=True)
         print('Done including dwd radolan precipitation data statistics')
@@ -648,15 +619,15 @@ for date in date_list:
     #%% Write out the netcdf data
     if new_month==True:
         ds_out=ds_timestep
+        ds_out=ds_out.transpose('y', 'x')
         new_month=False
     else:
         ds_out=xr.concat([ds_out,ds_timestep], dim='time')
+        ds_out=ds_out.transpose('y', 'x','time')
+    #transpose coords
+    
     #if we are at the end of a month we write out the data
-    if config['basics']['temporal_resolution']=='daily':
-        time_increment=timedelta(days=1)
-    elif config['basics']['temporal_resolution']=='hourly':
-        time_increment=timedelta(hours=1)
-    if int((date+time_increment).month) != int(current_month):
+    if int((date+timedelta(days=1)).month) != int(current_month):
         #merge with stationary_data
         ds_out=xr.merge([ds_out,ds_stationary])
         #add attributes to individual layers
