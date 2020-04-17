@@ -419,7 +419,6 @@ for date in date_list:
     else:
         ds_stationary=xr.load_dataset(os.getcwd()+config['basics']['output_location']+'\\'+config['basics']['output_name']+'_stationary.nc')
     
-    haha
     #%% Now we go to the dynamic data
     print('Start retrieving dynamic datasets for timestep',date.date())
     #if initial we need to create a boundary shapefile
