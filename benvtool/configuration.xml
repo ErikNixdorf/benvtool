@@ -33,6 +33,26 @@
       </metrics>
       <interpolate type="str">nearest</interpolate>
     </slope>
+    <TWI type="dict">
+      <file_location type="str">\dbases\topography\EUD_TWI_100_WGS84_mueglitz.tif</file_location>
+      <no_data type="int">-9999</no_data>
+      <raster_dtype type="str">int</raster_dtype>
+      <stats_type type="str">point_query</stats_type>
+      <metrics type="list">
+        <item type="str">mean</item>
+      </metrics>
+      <interpolate type="str">nearest</interpolate>
+    </TWI>
+    <ASPECT type="dict">
+      <file_location type="str">\dbases\topography\EUD_ASPECT_100_WGS84_mueglitz.tif</file_location>
+      <no_data type="int">-9999</no_data>
+      <raster_dtype type="str">int</raster_dtype>
+      <stats_type type="str">point_query</stats_type>
+      <metrics type="list">
+        <item type="str">mean</item>
+      </metrics>
+      <interpolate type="str">nearest</interpolate>
+    </ASPECT>
     <landuse type="dict">
       <file_location type="str">\dbases\corine\corine_2018.tif</file_location>
       <no_data type="int">-32768</no_data>
