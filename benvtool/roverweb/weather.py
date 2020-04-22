@@ -177,9 +177,11 @@ def update_stationlist(time_res='hourly',dbase_dir='dbase'):
     stations_network=stations_network.groupby(['STATIONS_ID'],as_index=False).agg('max')
     #replace zero by False in order to have pure boolean data
     stations_network.replace(0,False,inplace=True)
-    #fix the error with station 14138 and 05614, which does not have pressure cord
+    #fix the error with station 14138 and 05614 and 07325, which does not have pressure cord
     stations_network.loc[stations_network.STATIONS_ID=='14138','pressure']=False
     stations_network.loc[stations_network.STATIONS_ID=='05614','pressure']=False
+    stations_network.loc[stations_network.STATIONS_ID=='07325','pressure']=False
+    stations_network.loc[stations_network.STATIONS_ID=='01572','pressure']=False
     #for temperature the same
     stations_network.loc[stations_network.STATIONS_ID=='14138','air_temperature']=False
     #save to database writing the time as well
@@ -502,8 +504,9 @@ def Apnd_dwd_data(inpt_data,dwd_dbase,
         result_matrix=np.zeros((no_of_nearest_stations,len(inpt_data)))            
         #loop over all the available stations
         for i in range (0,no_of_nearest_stations):
+            #add station data colummn-wise
             station_data=dwd_dbase[parameter].sel(STATIONS_ID=xr.DataArray(inpt_data[data_category+'_station_'+str(i)]), time=xr.DataArray(df_times)).values
-             #http://xarray.pydata.org/en/stable/indexing.html                
+            #http://xarray.pydata.org/en/stable/indexing.html                
             #check for nan values
             station_data[np.where(station_data==-999)]=np.nan
             #replace distance to 100000 if value is nan
