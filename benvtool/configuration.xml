@@ -201,8 +201,8 @@
   </dwd_weather_stations>
   <modis type="dict">
     <to_harddisk type="bool">True</to_harddisk>
-    <username type="str">Nixdorf88</username>
-    <password type="str">Dummling88</password>
+    <username type="str">testdummy</username>
+    <password type="str">dummypassword</password>
     <products type="dict">
       <MOD09GA.006 type="dict">
         <delta_days_min type="int">20</delta_days_min>
