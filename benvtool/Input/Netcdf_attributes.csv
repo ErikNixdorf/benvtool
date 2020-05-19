@@ -62,7 +62,7 @@ osm_landuse,dominant landuse type,none,OpenStreetMap
 waterbody,Information whether a waterbody is located at datapoint,none,OpenStreetMap
 waterway,Information whether a stream is located at datapoint,none,OpenStreetMap
 landuse,Landcover categoryaccording to corine 2018 dataset,none,Corine2018
-slope,topographical slope,Percentage,EU-DEM v1.0
+slope,topographical slope,File Value [DN],EU-DEM v1.0
 elevation,Elevation,meter,EU-DEM v1.0
 No_of_tree,Number of counted Trees,none,OpenStreetMap
 hydraulic_conducitivity,hydraulic conductivity of the upper aquifer,m/s,"Hydrogeological Map of Germany 1:250,000 (HÜK250)"
