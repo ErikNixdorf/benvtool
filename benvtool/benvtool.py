@@ -202,12 +202,18 @@ with open(filename, 'r') as config_file:
 #ignore the root level of the xml
 for key in config.keys():
     config=config[key]
-#%% do some preprocessing     
-
+#%% do some preprocessing 
 d1 = datetime.strptime(config['basics']['start_time'], "%Y-%m-%d-%H")
 d2 = datetime.strptime(config['basics']['end_time'], "%Y-%m-%d-%H")
+diff = d2 - d1
+days, seconds = diff.days, diff.seconds
+hours = days * 24 + seconds // 3600
 days=abs((d2 - d1).days)
-date_list=[d1 + timedelta(days=x) for x in range(0,days)]
+if config['basics']['temporal_resolution'] =='daily':
+    date_list=[d1 + timedelta(days=x) for x in range(0,days)]
+elif config['basics']['temporal_resolution'] =='hourly':
+    date_list=[d1 + timedelta(hours=x) for x in range(0,hours)]
+    print('Currently, hourly time step is supported for Radolan only')
 #create output directory if not exist
 if not os.path.exists(os.getcwd()+config['basics']['output_location']):
     os.makedirs(os.getcwd()+config['basics']['output_location'])
@@ -274,35 +280,52 @@ for date in date_list:
             print('Appending datasets from Soilgrids database')   
             # try wcs service if not working use rest API
             try:
-                gdf_static = rw.soilgrid.apnd_from_wcs(gdf_static,soilgridlrs=config['soilgrid']['wcs_layers'], raster_res=(int(config['basics']['spatial_resolution']), int(config['basics']['spatial_resolution'])), statistical_metric=['mean'], all_touched=True, output=None)
+                gdf_static = rw.soilgrid.apnd_from_wcs(gdf_static,
+                                                       soilgridlrs=config['soilgrid']['soil_layers'],
+                                                       soil_layerdepths=config['soilgrid']['soildepth_intervals'], 
+                                                       raster_res=(int(config['basics']['spatial_resolution']), int(config['basics']['spatial_resolution'])), 
+                                                       statistical_metric=['mean'], 
+                                                       all_touched=True, 
+                                                       output=None)
             
             except Exception as e:
                 print(e)
                 print('trouble with soilgrid WCS, try RESTAPI')
                 #repair this annoying crs issue again
                 gdf_static.crs={'init':gdf_static.crs}
-                gdf_static = rw.soilgrid.apnd_from_restapi(gdf_static,
-                                                               soil_attributes=config['soilgrid']['restapi_layers'],
-                                                               soil_layerdepths=['sl1'], output=None)
-                gdf_static = rw.soilgrid.apnd_from_restapi(gdf_static,
-                                                               soil_attributes=config['soilgrid']['restapi_layers'],
-                                                               soil_layerdepths=['sl2'], output=None)
-                gdf_static = rw.soilgrid.apnd_from_restapi(gdf_static,
-                                                               soil_attributes=config['soilgrid']['restapi_layers'],
-                                                               soil_layerdepths=['sl3'], output=None)
+                #according to the 2.0 APi we have to loop over each property
+                for soil_property in config['soilgrid']['soil_layers']:
+                    #loop over each layer depth if not all are given
+                    for soil_depth_interval in config['soilgrid']['soildepth_intervals']:
+                        if len(config['soilgrid']['soildepth_intervals'])==6:
+                            gdf_static = rw.soilgrid.apnd_from_restapi(gdf_static,
+                                                                           soil_attributes=[soil_property],
+                                                                           soil_layerdepths=config['soilgrid']['soildepth_intervals'], output=None)
+                            break
+                        else:
+                            gdf_static = rw.soilgrid.apnd_from_restapi(gdf_static,
+                                                                           soil_attributes=[soil_property],
+                                                                           soil_layerdepths=[soil_depth_interval], output=None)                            
+
             #do some dataset corrections
-            #correct some value ranges in the stationary dataset             
+            #correct some value ranges in the stationary dataset
+            """
             data_column_nms=list(gdf_static.columns)
             for data_column_nm in data_column_nms:    
                 #data_column=pd.to_numeric(data_column, errors ='coerce').astype('float64')
                 # correct for soil layers
-                if 'PPT' in data_column_nm:
+                if 'clay' in data_column_nm:
                     gdf_static[data_column_nm]=gdf_static[data_column_nm].mask(gdf_static[data_column_nm] > 100)
-                if 'HOX' in data_column_nm:
+                if 'sand' in data_column_nm:
+                   gdf_static[data_column_nm]=gdf_static[data_column_nm].mask(gdf_static[data_column_nm] > 100)
+                if 'silt' in data_column_nm:
+                   gdf_static[data_column_nm]=gdf_static[data_column_nm].mask(gdf_static[data_column_nm] > 100)
+                if 'phh2o' in data_column_nm:
                     gdf_static[data_column_nm]=gdf_static[data_column_nm].mask(gdf_static[data_column_nm] > 100)
-                if 'CRFVOL' in data_column_nm:
+                if 'cfvo' in data_column_nm:
                     gdf_static[data_column_nm]=gdf_static[data_column_nm].mask(gdf_static[data_column_nm] > 100) 
-            print('Appending datasets from Soilgrids database done')  
+            """
+            print('Appending datasets from Soilgrids database done')
         #%% get data fram BGR
         if 'hydrogeology' in config: 
             print('Appending datasets from BGR')        
@@ -386,10 +409,16 @@ for date in date_list:
         #%% Final preparations of static dataset
         #change coordinate system and add x and y information
                 #get tp geographic coordinates
+        gdf_static.to_file('Soilgrid_output_mueglitz.shp')
         gdf_static=gdf_static.to_crs(config['basics']['output_crs'])
         #fix rounding issues, meter precision is enough
-        gdf_static['y']=np.round(gdf_static.centroid.y).astype(int)
-        gdf_static['x']=np.round(gdf_static.centroid.x).astype(int)
+        if config['basics']['output_crs'] is not 'epsg:4326':
+            print('round output grid coordinates to full meters')
+            gdf_static['y']=np.round(gdf_static.centroid.y).astype(int)
+            gdf_static['x']=np.round(gdf_static.centroid.x).astype(int)
+        else:
+            gdf_static['y']=gdf_static.centroid.y
+            gdf_static['x']=gdf_static.centroid.x
         #replace infinity values
         gdf_static.replace([np.inf, -np.inf], np.nan,inplace=True)       
         #define a new index
@@ -413,12 +442,12 @@ for date in date_list:
                                     'CRS' : config['basics']['output_crs']})
         #transpose x and y and write out
         ds_out_stat=ds_out_stat.transpose('y', 'x')
-        ds_out_stat.to_netcdf(os.getcwd()+config['basics']['output_location']+'\\'+config['basics']['output_name']+'_stationary.nc',format='NETCDF4_CLASSIC') 
+        ds_out_stat.to_netcdf(os.getcwd()+config['basics']['output_location']+'\\'+config['basics']['output_name']+'_stationary.nc',format='NETCDF3_64BIT') 
         
     #if the path exist we just upload the file back to xarray
     else:
         ds_stationary=xr.load_dataset(os.getcwd()+config['basics']['output_location']+'\\'+config['basics']['output_name']+'_stationary.nc')
-    
+
     #%% Now we go to the dynamic data
     print('Start retrieving dynamic datasets for timestep',date.date())
     #if initial we need to create a boundary shapefile
@@ -640,7 +669,7 @@ for date in date_list:
         ds_out=ds_out.assign_attrs({'Description': 'Comprehensive dataset of dynamic and stationary datasets for '+config['basics']['output_name']+' Area for '+date.strftime('%m%Y'),
                                     'Author': 'Erik Nixdorf', 'Version' : dataset_version, 'Version_Date' : datetime.now().date().strftime('%d-%m-%Y'),
                                     'CRS' : config['basics']['output_crs']})
-        ds_out.to_netcdf(os.getcwd()+config['basics']['output_location']+'\\'+config['basics']['output_name']+'_'+date.strftime('%m%Y')+'.nc',format='NETCDF4_CLASSIC')        
+        ds_out.to_netcdf(os.getcwd()+config['basics']['output_location']+'\\'+config['basics']['output_name']+'_'+date.strftime('%m%Y')+'.nc',format='NETCDF3_64BIT')        
         #renew loop
         del ds_out
         new_month=True

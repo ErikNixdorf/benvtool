@@ -85,42 +85,19 @@
     </waterways>
   </topography>
   <soilgrid type="dict">
-    <wcs_layers type="dict">
-      <key name="sg250m:ORCDRC_M_sl1_250m" type="str">ORCDRC_sl1</key>
-      <key name="sg250m:BLDFIE_M_sl1_250m" type="str">BLDFIE_sl1</key>
-      <key name="sg250m:PHIHOX_M_sl1_250m" type="str">PHIHOX_sl1</key>
-      <key name="sg250m:SNDPPT_M_sl1_250m" type="str">SNDPPT_sl1</key>
-      <key name="sg250m:SLTPPT_M_sl1_250m" type="str">SLTPPT_sl1</key>
-      <key name="sg250m:CLYPPT_M_sl1_250m" type="str">CLYPPT_sl1</key>
-      <key name="sg250m:CRFVOL_M_sl1_250m" type="str">CRFVOL_sl1</key>
-      <key name="sg250m:CECSOL_M_sl1_250m" type="str">CECSOL_sl1</key>
-      <key name="sg250m:ORCDRC_M_sl2_250m" type="str">ORCDRC_sl2</key>
-      <key name="sg250m:BLDFIE_M_sl2_250m" type="str">BLDFIE_sl2</key>
-      <key name="sg250m:PHIHOX_M_sl2_250m" type="str">PHIHOX_sl2</key>
-      <key name="sg250m:SNDPPT_M_sl2_250m" type="str">SNDPPT_sl2</key>
-      <key name="sg250m:SLTPPT_M_sl2_250m" type="str">SLTPPT_sl2</key>
-      <key name="sg250m:CLYPPT_M_sl2_250m" type="str">CLYPPT_sl2</key>
-      <key name="sg250m:CRFVOL_M_sl2_250m" type="str">CRFVOL_sl2</key>
-      <key name="sg250m:CECSOL_M_sl2_250m" type="str">CECSOL_sl2</key>
-      <key name="sg250m:ORCDRC_M_sl3_250m" type="str">ORCDRC_sl3</key>
-      <key name="sg250m:BLDFIE_M_sl3_250m" type="str">BLDFIE_sl3</key>
-      <key name="sg250m:PHIHOX_M_sl3_250m" type="str">PHIHOX_sl3</key>
-      <key name="sg250m:SNDPPT_M_sl3_250m" type="str">SNDPPT_sl3</key>
-      <key name="sg250m:SLTPPT_M_sl3_250m" type="str">SLTPPT_sl3</key>
-      <key name="sg250m:CLYPPT_M_sl3_250m" type="str">CLYPPT_sl3</key>
-      <key name="sg250m:CRFVOL_M_sl3_250m" type="str">CRFVOL_sl3</key>
-      <key name="sg250m:CECSOL_M_sl3_250m" type="str">CECSOL_sl3</key>
-    </wcs_layers>
-    <restapi_layers type="list">
-      <item type="str">ORCDRC</item>
-      <item type="str">BLDFIE</item>
-      <item type="str">PHIHOX</item>
-      <item type="str">SNDPPT</item>
-      <item type="str">SLTPPT</item>
-      <item type="str">CLYPPT</item>
-      <item type="str">CRFVOL</item>
-      <item type="str">CECSOL</item>
-    </restapi_layers>
+    <soil_layers type="list">
+      <item type="str">sand</item>
+      <item type="str">clay</item>
+      <item type="str">bdod</item>
+    </soil_layers>
+    <soildepth_intervals type="list">
+      <item type="str">0-5cm</item>
+      <item type="str">5-15cm</item>
+      <item type="str">15-30cm</item>
+      <item type="str">30-60cm</item>
+      <item type="str">60-100cm</item>
+      <item type="str">100-200cm</item>
+    </soildepth_intervals>
   </soilgrid>
   <hydrogeology type="dict">
     <Hydrologische_Uebersichtskarte_250 type="dict">
@@ -201,8 +178,8 @@
   </dwd_weather_stations>
   <modis type="dict">
     <to_harddisk type="bool">True</to_harddisk>
-    <username type="str">testdummy</username>
-    <password type="str">dummypassword</password>
+    <username type="str">Nixdorf88</username>
+    <password type="str">Dummling88</password>
     <products type="dict">
       <MOD09GA.006 type="dict">
         <delta_days_min type="int">20</delta_days_min>
