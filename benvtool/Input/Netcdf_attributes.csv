@@ -33,30 +33,30 @@ sur_refl_b01_1,Daily Surface Reflectance for Band 1,none,MODIS_MOD09GA
 precip_21_acc,21-days accumulated daily rainfall,cm per sm,DWD_RADOLAN
 precip_7_std,7-days standard deviation of daily rainfall,cm per sm,DWD_RADOLAN
 precip_21_counts,21-days counts of rainfall days,none,DWD_RADOLAN
-BLDFIE_sl1,Bulk density (fine earth) ,kg / cubic-meter,SoilGrids250m
-BLDFIE_sl2,Bulk density (fine earth) ,kg / cubic-meter,SoilGrids250m
-BLDFIE_sl3,Bulk density (fine earth) ,kg / cubic-meter,SoilGrids250m
-CECSOL_sl1,Cation exchange capacity of soil,cmolc/kg,SoilGrids250m
-CECSOL_sl2,Cation exchange capacity of soil,cmolc/kg,SoilGrids250m
-CECSOL_sl3,Cation exchange capacity of soil,cmolc/kg,SoilGrids250m
-CLYPPT_sl1,lay content (0-2 micro meter) mass fraction,Percentage,SoilGrids250m
-CLYPPT_sl2,lay content (0-2 micro meter) mass fraction,Percentage,SoilGrids250m
-CLYPPT_sl3,lay content (0-2 micro meter) mass fraction,Percentage,SoilGrids250m
-CRFVOL_sl1,Coarse fragments volumetric ,Percentage,SoilGrids250m
-CRFVOL_sl2,Coarse fragments volumetric ,Percentage,SoilGrids250m
-CRFVOL_sl3,Coarse fragments volumetric ,Percentage,SoilGrids250m
-ORCDRC_sl1,Soil organic carbon content (fine earth fraction),g per kg,SoilGrids250m
-ORCDRC_sl2,Soil organic carbon content (fine earth fraction),g per kg,SoilGrids250m
-ORCDRC_sl3,Soil organic carbon content (fine earth fraction),g per kg,SoilGrids250m
-PHIHOX_sl1,Soil pH x 10 in H2O,none,SoilGrids250m
-PHIHOX_sl2,Soil pH x 10 in H2O,none,SoilGrids250m
-PHIHOX_sl3,Soil pH x 10 in H2O,none,SoilGrids250m
-SLTPPT_sl1,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
-SLTPPT_sl2,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
-SLTPPT_sl3,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
-SNDPPT_sl1,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
-SNDPPT_sl2,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
-SNDPPT_sl3,Silt content (2-50 micro meter) mass fraction,Percentage,SoilGrids250m
+bdod_0-5cm_mean,Bulk density (fine earth) ,cg/cm³,SoilGrids_V2
+bdod_5-15cm_mean,Bulk density (fine earth) ,cg/cm³,SoilGrids_V2
+bdod_15-30cm_mean,Bulk density (fine earth) ,cg/cm³,SoilGrids_V2
+cec_0-5cm_mean,Cation exchange capacity of soil,mmol(c)/kg,SoilGrids_V2
+cec_5-15cm_mean,Cation exchange capacity of soil,mmol(c)/kg,SoilGrids_V2
+cec_15-30cm_mean,Cation exchange capacity of soil,mmol(c)/kg,SoilGrids_V2
+clay_0-5cm_mean,clay content (0-2 micro meter) mass fraction,g/kg,SoilGrids_V2
+clay_5-15cm_mean,clay content (0-2 micro meter) mass fraction,g/kg,SoilGrids_V2
+clay_15-30cm_mean,clay content (0-2 micro meter) mass fraction,g/kg,SoilGrids_V2
+cfvo_0-5cm_mean,Coarse fragments volumetric ,cm3/dm3 (vol‰),SoilGrids_V2
+cfvo_5-15cm_mean,Coarse fragments volumetric ,cm3/dm3 (vol‰),SoilGrids_V2
+cfvo_15-30cm_mean,Coarse fragments volumetric ,cm3/dm3 (vol‰),SoilGrids_V2
+soc_0-5cm_mean,Soil organic carbon content (fine earth fraction),dg/kg,SoilGrids_V2
+soc_5-15cm_mean,Soil organic carbon content (fine earth fraction),dg/kg,SoilGrids_V2
+soc_15-30cm_mean,Soil organic carbon content (fine earth fraction),dg/kg,SoilGrids_V2
+phh2o_0-5cm_mean,Soil pH x 10 in H2O,pHx10,SoilGrids_V2
+phh2o_5-15cm_mean,Soil pH x 10 in H2O,pHx10,SoilGrids_V2
+phh2o_15-30cm_mean,Soil pH x 10 in H2O,pHx10,SoilGrids_V2
+silt_0-5cm_mean,Silt content (2-50 micro meter) mass fraction,g/kg,SoilGrids_V2
+silt_5-15cm_mean,Silt content (2-50 micro meter) mass fraction,g/kg,SoilGrids_V2
+silt_15-30cm_mean,Silt content (2-50 micro meter) mass fraction,g/kg,SoilGrids_V2
+sand_0-5cm_mean,Silt content (2-50 micro meter) mass fraction,g/kg,SoilGrids_V2
+sand_5-15cm_mean,Silt content (2-50 micro meter) mass fraction,g/kg,SoilGrids_V2
+sand_15-30cm_mean,Silt content (2-50 micro meter) mass fraction,g/kg,SoilGrids_V2
 road_type,dominant road type,none,OpenStreetMap
 osm_landuse,dominant landuse type,none,OpenStreetMap
 waterbody,Information whether a waterbody is located at datapoint,none,OpenStreetMap
